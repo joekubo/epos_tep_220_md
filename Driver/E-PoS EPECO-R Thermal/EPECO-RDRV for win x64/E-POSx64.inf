@@ -1,0 +1,56 @@
+;
+;	Printer Installation File
+;
+;	 List of supported printers, manufacturers
+;
+
+[Version]
+Signature="$Windows NT$"
+Provider=%E-POS%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+
+;
+; Manufacturer section.
+;
+; This section lists all of the manufacturers
+; that we will display in the Dialog box
+;
+
+[Manufacturer]
+"E-POS"=E-POS, NTamd64
+
+;
+; Model Specifications Section
+;
+
+[E-POS]
+"EPECO-R"    = EPECOR.GPD
+
+[E-POS.NTamd64]
+"EPECO-R"    = EPECOR.GPD
+
+;
+; Installer section(s) referenced above.
+;
+
+[EPECOR.GPD]
+CopyFiles=@EPECOR.dll,@EPECOR.GPD
+DataSection=UNIDRV_DATA
+DataFile=EPECOR.GPD
+Include=NTPRINT.INF
+Needs=UNIDRV.OEM
+
+[DestinationDirs]
+DefaultDestDir=66000
+
+[SourceDisksNames.amd64]
+1 = %disk1%,,,
+
+[SourceDisksFiles]
+EPECOR.DLL         = 1
+EPECOR.GPD         = 1
+
+[Strings]
+PrinterClassName="Printers"
+disk1="Printer Driver Setup Disk"

@@ -1,0 +1,56 @@
+;
+;	Printer Installation File
+;
+;	 List of supported printers, manufacturers
+;
+
+[Version]
+Signature="$Windows NT$"
+Provider=%E-PoS%
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+
+;
+; Manufacturer section.
+;
+; This section lists all of the manufacturers
+; that we will display in the Dialog box
+;
+
+[Manufacturer]
+"E-PoS"=E-PoS, NTamd64
+
+;
+; Model Specifications Section
+;
+
+[E-PoS]
+"ECO 250"    = ECO250.GPD
+
+[E-PoS.NTamd64]
+"ECO 250"    = ECO250.GPD
+
+;
+; Installer section(s) referenced above.
+;
+
+[ECO250.GPD]
+CopyFiles=@ECO250.dll,@ECO250.GPD
+DataSection=UNIDRV_DATA
+DataFile=ECO250.GPD
+Include=NTPRINT.INF
+Needs=UNIDRV.OEM
+
+[DestinationDirs]
+DefaultDestDir=66000
+
+[SourceDisksNames.amd64]
+1 = %disk1%,,,
+
+[SourceDisksFiles]
+ECO250.DLL         = 1
+ECO250.GPD         = 1
+
+[Strings]
+PrinterClassName="Printers"
+disk1="Printer Driver Setup Disk"
